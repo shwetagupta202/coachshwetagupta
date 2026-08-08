@@ -184,10 +184,7 @@ export function ChatbotWidget() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className={cn(
-          "btn-base btn-cyan h-14 w-14 rounded-full shadow-glow",
-          "fixed bottom-5 right-5",
-        )}
+        className="btn-base btn-cyan h-14 w-14 rounded-full shadow-glow"
         aria-label={open ? "Close chat" : "Open chat"}
       >
         {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
