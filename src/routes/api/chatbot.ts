@@ -37,7 +37,7 @@ export const Route = createFileRoute("/api/chatbot")({
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ message, sessionId }),
+          body: JSON.stringify({ message, sessionId, chatInput: message }),
         });
 
         const raw = await upstream.text();
