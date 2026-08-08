@@ -161,6 +161,7 @@ export function ChatbotWidget() {
           <form onSubmit={handleSubmit} className="border-t border-border bg-surface/60 p-3">
             <div className="flex items-center gap-2 rounded-xl border border-input bg-background/60 px-3 py-2 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary/30">
               <input
+                ref={inputRef}
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Ask me anything..."
@@ -170,7 +171,7 @@ export function ChatbotWidget() {
               <button
                 type="submit"
                 disabled={loading || !input.trim()}
-                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary-glow disabled:opacity-40"
+                className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-40"
                 aria-label="Send message"
               >
                 <Send className="h-4 w-4" />
