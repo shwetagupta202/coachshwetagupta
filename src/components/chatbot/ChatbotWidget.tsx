@@ -92,6 +92,8 @@ export function ChatbotWidget() {
     }
   };
 
+  if (!mounted) return null;
+
   return (
     <div className="fixed bottom-5 right-5 z-50 flex flex-col items-end gap-3">
       {open && (
