@@ -8,9 +8,13 @@ interface Message {
   content: string;
 }
 
-const SESSION_ID = `chat-${Math.random().toString(36).slice(2, 10)}-${Date.now().toString(36)}`;
-
 export function ChatbotWidget() {
+  const [mounted, setMounted] = useState(false);
+  const [sessionId] = useState(() =>
+    typeof crypto !== "undefined" && crypto.randomUUID
+      ? crypto.randomUUID()
+      : `chat-${Math.random().toString(36).slice(2, 10)}-${Date.now().toString(36)}`,
+  );
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
@@ -23,6 +27,17 @@ export function ChatbotWidget() {
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (open && inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [open]);
 
   useEffect(() => {
     if (scrollRef.current) {
