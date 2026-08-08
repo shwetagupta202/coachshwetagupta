@@ -63,13 +63,13 @@ export const Route = createFileRoute("/api/chatbot")({
         } else if (data && typeof data === "object") {
           const obj = data as Record<string, unknown>;
           const candidate =
-            (typeof obj.output === "string" && obj.output) ||
-            (typeof obj.response === "string" && obj.response) ||
-            (typeof obj.message === "string" && obj.message) ||
-            (typeof obj.text === "string" && obj.text) ||
-            (typeof obj.answer === "string" && obj.answer) ||
-            (typeof obj.textResponse === "string" && obj.textResponse) ||
-            (typeof obj.reply === "string" && obj.reply) ||
+            (typeof obj["output"] === "string" && obj["output"]) ||
+            (typeof obj["response"] === "string" && obj["response"]) ||
+            (typeof obj["message"] === "string" && obj["message"]) ||
+            (typeof obj["text"] === "string" && obj["text"]) ||
+            (typeof obj["answer"] === "string" && obj["answer"]) ||
+            (typeof obj["textResponse"] === "string" && obj["textResponse"]) ||
+            (typeof obj["reply"] === "string" && obj["reply"]) ||
             "";
           reply = candidate || raw;
         }
