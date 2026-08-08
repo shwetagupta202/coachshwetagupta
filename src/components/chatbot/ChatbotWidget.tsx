@@ -106,7 +106,7 @@ export function ChatbotWidget() {
           <div className="flex items-center justify-between border-b border-border bg-surface/60 px-4 py-3">
             <div className="flex items-center gap-2.5">
               <div className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-gradient-to-br from-primary to-gold text-primary-foreground shadow-glow">
-                <Bot className="h-4.5 w-4.5" strokeWidth={2.5} />
+                <Bot className="h-4 w-4" strokeWidth={2.5} />
               </div>
               <div className="min-w-0">
                 <p className="font-display text-sm font-semibold">AI Assistant</p>
