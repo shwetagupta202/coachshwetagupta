@@ -123,17 +123,11 @@ export function ChatbotWidget() {
             </button>
           </div>
 
-          <div
-            ref={scrollRef}
-            className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4"
-          >
+          <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4">
             {messages.map((m) => (
               <div
                 key={m.id}
-                className={cn(
-                  "flex w-full",
-                  m.role === "user" ? "justify-end" : "justify-start",
-                )}
+                className={cn("flex w-full", m.role === "user" ? "justify-end" : "justify-start")}
               >
                 <div
                   className={cn(
