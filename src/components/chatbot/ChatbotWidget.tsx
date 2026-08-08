@@ -63,7 +63,7 @@ export function ChatbotWidget() {
       const res = await fetch("/api/chatbot", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text, sessionId: SESSION_ID }),
+        body: JSON.stringify({ message: text, sessionId }),
       });
 
       if (!res.ok) throw new Error("Failed to get response");
