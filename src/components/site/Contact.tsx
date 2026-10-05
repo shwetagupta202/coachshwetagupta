@@ -1,8 +1,15 @@
 import { useState } from "react";
-import { Linkedin, Mail, MapPin } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Youtube } from "lucide-react";
 import { toast } from "sonner";
 import { Reveal } from "./Reveal";
-import { COACHING_URL, LINKEDIN_URL } from "./content";
+import {
+  COACHING_URL,
+  CONTACT_EMAIL,
+  FACEBOOK_URL,
+  INSTAGRAM_URL,
+  LINKEDIN_URL,
+  YOUTUBE_URL,
+} from "./content";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
@@ -24,17 +31,27 @@ export function Contact() {
                 rel="noreferrer"
                 className="btn-base btn-cyan"
               >
-                Book a Free Call
+                Book a Call
               </a>
-              <a
-                href={LINKEDIN_URL}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-base btn-gold"
-              >
-                <Linkedin className="h-4 w-4" />
-                Connect on LinkedIn
-              </a>
+              <div className="flex items-center gap-3">
+                {[
+                  { href: YOUTUBE_URL, label: "YouTube", Icon: Youtube },
+                  { href: INSTAGRAM_URL, label: "Instagram", Icon: Instagram },
+                  { href: LINKEDIN_URL, label: "LinkedIn", Icon: Linkedin },
+                  { href: FACEBOOK_URL, label: "Facebook", Icon: Facebook },
+                ].map(({ href, label, Icon }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={label}
+                    className="grid h-11 w-11 place-items-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>
@@ -53,8 +70,12 @@ export function Contact() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
-                {/* PLACEHOLDER — add real email here */}
-                Add your email address
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="transition-colors hover:text-primary"
+                >
+                  shwetagupta202@gmail.com
+                </a>
               </li>
               <li className="flex items-center gap-3">
                 <Linkedin className="h-4 w-4 shrink-0 text-primary" />
@@ -135,14 +156,23 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-5 text-sm text-muted-foreground">
-          <a
-            href={LINKEDIN_URL}
-            target="_blank"
-            rel="noreferrer"
-            className="transition-colors hover:text-primary"
-          >
-            LinkedIn
-          </a>
+          {[
+            { href: YOUTUBE_URL, label: "YouTube" },
+            { href: INSTAGRAM_URL, label: "Instagram" },
+            { href: LINKEDIN_URL, label: "LinkedIn" },
+            { href: FACEBOOK_URL, label: "Facebook" },
+          ].map(({ href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="transition-colors hover:text-primary"
+            >
+              {label}
+            </a>
+          ))}
+        </div>
           <a href="#workshops" className="transition-colors hover:text-primary">
             Workshops
           </a>
