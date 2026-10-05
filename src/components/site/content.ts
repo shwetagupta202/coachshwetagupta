@@ -10,6 +10,7 @@ export const YOUTUBE_URL = "https://www.youtube.com/@CoachShwetaGuptaAIAgents";
 export const INSTAGRAM_URL = "https://www.instagram.com/aiagentscoachshwetagupta/";
 export const FACEBOOK_URL = "https://www.facebook.com/coachshwetagupta";
 export const CONTACT_EMAIL = "shwetagupta202@gmail.com";
+export const WORKSHOPS_URL = "https://ai.coachshwetagupta.com/";
 
 export const STATS = [
   { value: "300+", label: "Live Workshops Delivered" },
