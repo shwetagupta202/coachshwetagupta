@@ -12,8 +12,8 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 import portrait from "@/assets/shweta-portrait.jpg";
-import bookLinkedIn from "@/assets/book-linkedin-mastery.jpg";
-import bookCoach from "@/assets/book-i-can-coach.jpg";
+import bookLinkedIn from "@/assets/book-linkedin-mastery.png.asset.json";
+import bookCoach from "@/assets/book-i-can-coach.png.asset.json";
 import { Reveal } from "./Reveal";
 import {
   COMPANIES,
@@ -23,6 +23,8 @@ import {
   STATS,
   TESTIMONIALS,
   TIMELINE,
+  VIDEO_EMBEDS,
+  WORKSHOPS_URL,
 } from "./content";
 
 const ICONS: Record<string, ComponentType<{ className?: string }>> = {
@@ -188,16 +190,20 @@ export function Experience() {
 
 const BOOKS = [
   {
-    cover: bookLinkedIn,
+    cover: bookLinkedIn.url,
     title: "LinkedIn Mastery for Professionals",
     tag: "Amazon Bestseller · Solo Author",
     body: "A practical playbook for professionals who want visibility that converts — positioning, content systems and networking without the hustle theatre.",
+    link: "https://www.amazon.in/LinkedIn-Mastery-Professionals-Personal-attract-ebook/dp/B0CV5PBNNS",
+    cta: "View on Amazon",
   },
   {
-    cover: bookCoach,
+    cover: bookCoach.url,
     title: "I Can Coach Vol. 3",
     tag: "Co-Author",
     body: "A collection of coaching stories and frameworks from practitioners, featuring my chapter on turning technical expertise into teaching impact.",
+    link: "https://icancoach.com/3",
+    cta: "View the Book",
   },
 ];
 
@@ -228,12 +234,12 @@ export function Books() {
                 <h3 className="mt-2 text-lg font-semibold">{book.title}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{book.body}</p>
                 <a
-                  href="https://www.amazon.in/"
+                  href={book.link}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-base btn-outline-soft mt-5"
                 >
-                  View on Amazon
+                  {book.cta}
                   <ArrowUpRight className="h-4 w-4" />
                 </a>
               </div>
@@ -288,6 +294,22 @@ export function Testimonials() {
             </Reveal>
           ))}
         </div>
+
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {VIDEO_EMBEDS.map((v, i) => (
+            <Reveal key={v.src} delay={i * 90} className="panel overflow-hidden p-2">
+              <div className="aspect-video overflow-hidden rounded-xl">
+                <iframe
+                  src={v.src}
+                  title={v.title}
+                  loading="lazy"
+                  allowFullScreen
+                  className="h-full w-full"
+                />
+              </div>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -331,7 +353,12 @@ export function Workshops() {
           ))}
         </div>
         <Reveal delay={200} className="mt-10 flex flex-wrap gap-3">
-          <a href="#contact" className="btn-base btn-cyan">
+          <a
+            href={WORKSHOPS_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="btn-base btn-cyan"
+          >
             View Upcoming Workshops
           </a>
           <a

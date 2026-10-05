@@ -5,12 +5,17 @@
  */
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/shwetagupta2021/";
-export const COACHING_URL = "https://www.linkedin.com/in/shwetagupta2021/";
+export const COACHING_URL = "https://topmate.io/shweta_gupta/1157733";
+export const YOUTUBE_URL = "https://www.youtube.com/@CoachShwetaGuptaAIAgents";
+export const INSTAGRAM_URL = "https://www.instagram.com/aiagentscoachshwetagupta/";
+export const FACEBOOK_URL = "https://www.facebook.com/coachshwetagupta";
+export const CONTACT_EMAIL = "shwetagupta202@gmail.com";
+export const WORKSHOPS_URL = "https://ai.coachshwetagupta.com/";
 
 export const STATS = [
   { value: "300+", label: "Live Workshops Delivered" },
   { value: "5,000+", label: "Professionals Trained" },
-  { value: "170+", label: "Active Community Members" },
+  { value: "270+", label: "Active Community Members" },
   { value: "#1", label: "Amazon Bestselling Author" },
 ];
 
@@ -117,5 +122,21 @@ export const TESTIMONIALS = [
       "My LinkedIn presence completely changed after applying her positioning framework. Inbound conversations started within a month.",
     name: "Community Member",
     role: "Tech Consultant · Placeholder",
+  },
+];
+
+/** Embedded video testimonials — YouTube + Instagram reels. */
+export const VIDEO_EMBEDS = [
+  {
+    src: "https://www.youtube.com/embed/AZLz9LLZxws?start=308",
+    title: "Video testimonial · YouTube",
+  },
+  {
+    src: "https://www.instagram.com/reel/Dcv5wMhiYtS/embed",
+    title: "Video testimonial · Instagram",
+  },
+  {
+    src: "https://www.instagram.com/reel/DcyZM1liNX2/embed",
+    title: "Video testimonial · Instagram",
   },
 ];
