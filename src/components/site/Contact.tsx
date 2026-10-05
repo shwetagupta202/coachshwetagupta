@@ -173,13 +173,6 @@ export function Footer() {
             </a>
           ))}
         </div>
-          <a href="#workshops" className="transition-colors hover:text-primary">
-            Workshops
-          </a>
-          <a href="#books" className="transition-colors hover:text-primary">
-            Books
-          </a>
-        </div>
         <p className="text-xs text-muted-foreground">
           © {new Date().getFullYear()} Shweta Gupta. All rights reserved.
         </p>
