@@ -8,6 +8,7 @@ import {
   FACEBOOK_URL,
   INSTAGRAM_URL,
   LINKEDIN_URL,
+  WORKSHOPS_URL,
   YOUTUBE_URL,
 } from "./content";
 
