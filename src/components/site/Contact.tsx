@@ -8,6 +8,7 @@ import {
   FACEBOOK_URL,
   INSTAGRAM_URL,
   LINKEDIN_URL,
+  WORKSHOPS_URL,
   YOUTUBE_URL,
 } from "./content";
 
@@ -26,10 +27,18 @@ export function Contact() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3">
               <a
-                href={COACHING_URL}
+                href={WORKSHOPS_URL}
                 target="_blank"
                 rel="noreferrer"
                 className="btn-base btn-cyan"
+              >
+                Register for AI Agents Workshop
+              </a>
+              <a
+                href={COACHING_URL}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-base btn-outline-soft"
               >
                 Book a Call
               </a>
