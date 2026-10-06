@@ -11,7 +11,7 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import portrait from "@/assets/shweta-portrait.jpg";
+import aboutPortraitAsset from "@/assets/shweta-about.png.asset.json";
 import bookLinkedIn from "@/assets/book-linkedin-mastery.png.asset.json";
 import bookCoach from "@/assets/book-i-can-coach.png.asset.json";
 import { Reveal } from "./Reveal";
@@ -88,7 +88,7 @@ export function About() {
         <Reveal className="order-2 lg:order-1">
           <div className="panel overflow-hidden p-3">
             <img
-              src={portrait}
+              src={aboutPortraitAsset.url}
               alt="Shweta Gupta speaking about AI agents"
               loading="lazy"
               width={1024}
