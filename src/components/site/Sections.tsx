@@ -295,20 +295,35 @@ export function Testimonials() {
           ))}
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-3">
-          {VIDEO_EMBEDS.map((v, i) => (
-            <Reveal key={v.src} delay={i * 90} className="panel overflow-hidden p-2">
-              <div className="aspect-video overflow-hidden rounded-xl">
+        <div className="mt-10 space-y-6">
+          {VIDEO_EMBEDS.filter((v) => v.src.includes("youtube.com")).map((v) => (
+            <Reveal key={v.src} className="mx-auto max-w-4xl">
+              <div className="aspect-video overflow-hidden rounded-lg border border-border">
                 <iframe
                   src={v.src}
                   title={v.title}
                   loading="lazy"
                   allowFullScreen
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   className="h-full w-full"
                 />
               </div>
             </Reveal>
           ))}
+          <div className="mx-auto grid max-w-4xl gap-6 md:grid-cols-2">
+            {VIDEO_EMBEDS.filter((v) => v.src.includes("instagram.com")).map((v, i) => (
+              <Reveal key={v.src} delay={i * 90} className="mx-auto w-full max-w-[420px]">
+                <iframe
+                  src={v.src}
+                  title={`${v.title} ${i + 1}`}
+                  loading="lazy"
+                  allowFullScreen
+                  allow="autoplay; encrypted-media; picture-in-picture"
+                  className="h-[820px] w-full rounded-lg border border-border"
+                />
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

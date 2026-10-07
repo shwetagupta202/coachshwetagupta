@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { WHATSAPP_URL } from "@/components/site/content";
 
 interface Message {
   id: string;
@@ -113,14 +115,16 @@ export function ChatbotWidget() {
                 <p className="text-xs text-muted-foreground">Ask about Shweta's work</p>
               </div>
             </div>
-            <button
+            <Button
+              variant="ghost"
+              size="icon"
               type="button"
               onClick={() => setOpen(false)}
               className="rounded-full p-1.5 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
               aria-label="Close chat"
             >
               <X className="h-4 w-4" />
-            </button>
+            </Button>
           </div>
 
           <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto overscroll-contain p-4">
@@ -161,28 +165,40 @@ export function ChatbotWidget() {
                 placeholder="Ask me anything..."
                 className="min-w-0 flex-1 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
                 aria-label="Your message"
+                maxLength={4000}
               />
-              <button
+              <Button
+                size="icon"
                 type="submit"
                 disabled={loading || !input.trim()}
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-primary text-primary-foreground transition-colors hover:bg-primary/90 disabled:opacity-40"
                 aria-label="Send message"
               >
                 <Send className="h-4 w-4" />
-              </button>
+              </Button>
             </div>
           </form>
         </div>
       )}
 
-      <button
-        type="button"
-        onClick={() => setOpen((v) => !v)}
-        className="btn-base btn-cyan h-14 w-14 rounded-full shadow-glow"
-        aria-label={open ? "Close chat" : "Open chat"}
-      >
-        {open ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
-      </button>
+      <div className="flex items-center gap-2">
+        <Button asChild variant="outline" className="h-12 rounded-full border-primary/40 bg-background px-4 shadow-card">
+          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+            <MessageCircle />
+            WhatsApp
+          </a>
+        </Button>
+        <Button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="h-12 rounded-full px-4 shadow-glow"
+          aria-label={open ? "Close chat" : "Ask Shweta"}
+          aria-expanded={open}
+        >
+          {open ? <X /> : <Bot />}
+          Ask Shweta
+        </Button>
+      </div>
     </div>
   );
 }

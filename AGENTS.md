@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Public contact submissions use a validated TanStack server function and a service-role-only atomic database RPC for rate limiting and storage, so visitors cannot access submitted messages.
+- Contact validation is shared between browser and server to keep field limits consistent.
