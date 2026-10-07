@@ -11,9 +11,9 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import aboutPortraitAsset from "@/assets/shweta-about.png.asset.json";
-import bookLinkedIn from "@/assets/book-linkedin-mastery.png.asset.json";
-import bookCoach from "@/assets/book-i-can-coach.png.asset.json";
+import aboutPortraitUrl from "@/assets/shweta-about.png";
+import bookLinkedInCover from "@/assets/book-linkedin-mastery.png";
+import bookCoachCover from "@/assets/book-i-can-coach.png";
 import { Reveal } from "./Reveal";
 import {
   COMPANIES,
@@ -88,7 +88,7 @@ export function About() {
         <Reveal className="order-2 lg:order-1">
           <div className="panel overflow-hidden p-3">
             <img
-              src={aboutPortraitAsset.url}
+              src={aboutPortraitUrl}
               alt="Shweta Gupta speaking about AI agents"
               loading="lazy"
               width={1024}
@@ -190,7 +190,7 @@ export function Experience() {
 
 const BOOKS = [
   {
-    cover: bookLinkedIn.url,
+    cover: bookLinkedInCover,
     title: "LinkedIn Mastery for Professionals",
     tag: "Amazon Bestseller · Solo Author",
     body: "A practical playbook for professionals who want visibility that converts — positioning, content systems and networking without the hustle theatre.",
@@ -198,7 +198,7 @@ const BOOKS = [
     cta: "View on Amazon",
   },
   {
-    cover: bookCoach.url,
+    cover: bookCoachCover,
     title: "I Can Coach Vol. 3",
     tag: "Co-Author",
     body: "A collection of coaching stories and frameworks from practitioners, featuring my chapter on turning technical expertise into teaching impact.",

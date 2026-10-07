@@ -1,5 +1,5 @@
 import { ArrowRight, Sparkles } from "lucide-react";
-import portraitAsset from "@/assets/shweta-portrait.png.asset.json";
+import portraitUrl from "@/assets/shweta-portrait.png";
 import { Reveal } from "./Reveal";
 import { LINKEDIN_URL } from "./content";
 
@@ -62,7 +62,7 @@ export function Hero() {
           />
           <div className="panel relative overflow-hidden p-3">
             <img
-              src={portraitAsset.url}
+              src={portraitUrl}
               alt="Shweta Gupta, AI Agents Coach and Product Leader"
               width={1024}
               height={1280}
