@@ -1,5 +1,5 @@
 import { ArrowRight, Sparkles } from "lucide-react";
-import portraitAsset from "@/assets/shweta-portrait.png.asset.json";
+import portraitUrl from "@/assets/shweta-portrait.png";
 import { Reveal } from "./Reveal";
 import { LINKEDIN_URL } from "./content";
 

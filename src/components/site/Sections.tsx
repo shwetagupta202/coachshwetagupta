@@ -11,9 +11,9 @@ import {
   ArrowUpRight,
 } from "lucide-react";
 import type { ComponentType } from "react";
-import aboutPortraitAsset from "@/assets/shweta-about.png.asset.json";
-import bookLinkedIn from "@/assets/book-linkedin-mastery.png.asset.json";
-import bookCoach from "@/assets/book-i-can-coach.png.asset.json";
+import aboutPortraitUrl from "@/assets/shweta-about.png";
+import bookLinkedInCover from "@/assets/book-linkedin-mastery.png";
+import bookCoachCover from "@/assets/book-i-can-coach.png";
 import { Reveal } from "./Reveal";
 import {
   COMPANIES,
