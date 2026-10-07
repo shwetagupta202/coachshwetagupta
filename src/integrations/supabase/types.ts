@@ -14,13 +14,62 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      contact_rate_limits: {
+        Row: {
+          attempts: number
+          key: string
+          window_start: string
+        }
+        Insert: {
+          attempts?: number
+          key: string
+          window_start?: string
+        }
+        Update: {
+          attempts?: number
+          key?: string
+          window_start?: string
+        }
+        Relationships: []
+      }
+      contact_submissions: {
+        Row: {
+          created_at: string
+          email: string
+          id: string
+          message: string
+          name: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          id?: string
+          message: string
+          name: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      submit_contact: {
+        Args: {
+          p_email: string
+          p_message: string
+          p_name: string
+          p_rate_key: string
+        }
+        Returns: string
+      }
     }
     Enums: {
       [_ in never]: never
