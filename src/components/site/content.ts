@@ -10,6 +10,7 @@ export const YOUTUBE_URL = "https://www.youtube.com/@CoachShwetaGuptaAIAgents";
 export const INSTAGRAM_URL = "https://www.instagram.com/aiagentscoachshwetagupta/";
 export const FACEBOOK_URL = "https://www.facebook.com/coachshwetagupta";
 export const CONTACT_EMAIL = "shwetagupta202@gmail.com";
+export const WHATSAPP_URL = "https://wa.me/917738633354";
 export const WORKSHOPS_URL = "https://ai.coachshwetagupta.com/";
 
 export const STATS = [
@@ -60,7 +61,7 @@ export const TIMELINE = [
     role: "AI Agents Coach & Founder",
     org: "AI Agents & Career Spike Hub",
     period: "Sept 2024 – Present",
-    body: "Teaching working professionals to build AI agents, voice agents and no-code automations through live cohorts, workshops and a 170+ member coaching community.",
+    body: "Teaching working professionals to build AI agents, voice agents and no-code automations through live cohorts, workshops and a 270+ member coaching community.",
   },
   {
     role: "PLM Senior Technical Lead",

@@ -1,6 +1,10 @@
 import { useState } from "react";
 import { Facebook, Instagram, Linkedin, Mail, MapPin, Youtube } from "lucide-react";
 import { toast } from "sonner";
+import { useServerFn } from "@tanstack/react-start";
+import { Button } from "@/components/ui/button";
+import { contactSchema } from "@/lib/contact-schema";
+import { submitContact } from "@/lib/contact.functions";
 import { Reveal } from "./Reveal";
 import {
   COACHING_URL,
@@ -14,6 +18,9 @@ import {
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState("");
+  const sendContact = useServerFn(submitContact);
 
   return (
     <section id="contact" className="py-24">
@@ -103,17 +110,42 @@ export function Contact() {
           <Reveal delay={100} className="panel p-8">
             <form
               className="grid gap-4 sm:grid-cols-2"
-              onSubmit={(e) => {
+              onSubmit={async (e) => {
                 e.preventDefault();
-                setSent(true);
-                toast.success("Thanks! Your message has been noted.");
+                if (sending) return;
+                const form = e.currentTarget;
+                const parsed = contactSchema.safeParse(Object.fromEntries(new FormData(form)));
+                if (!parsed.success) {
+                  setError(parsed.error.issues[0]?.message || "Please check your details.");
+                  return;
+                }
+                setSending(true);
+                setSent(false);
+                setError("");
+                try {
+                  const result = await sendContact({ data: parsed.data });
+                  if (!result.success) {
+                    setError(result.message);
+                    return;
+                  }
+                  setSent(true);
+                  form.reset();
+                  toast.success(result.message);
+                } catch {
+                  setError("Your message could not be saved. Please try again.");
+                } finally {
+                  setSending(false);
+                }
               }}
+              onChange={() => setSent(false)}
             >
               <label className="text-sm sm:col-span-1">
                 <span className="text-muted-foreground">Name</span>
                 <input
                   required
                   name="name"
+                  maxLength={100}
+                  autoComplete="name"
                   className="mt-2 w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                   placeholder="Your name"
                 />
@@ -124,6 +156,8 @@ export function Contact() {
                   required
                   type="email"
                   name="email"
+                  maxLength={255}
+                  autoComplete="email"
                   className="mt-2 w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                   placeholder="you@company.com"
                 />
@@ -133,18 +167,18 @@ export function Contact() {
                 <textarea
                   required
                   name="message"
+                  maxLength={1000}
                   rows={5}
                   className="mt-2 w-full resize-none rounded-xl border border-input bg-background/60 px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
                   placeholder="Tell me about your team, goals or the workshop you're interested in."
                 />
               </label>
               <div className="sm:col-span-2">
-                <button type="submit" className="btn-base btn-cyan w-full sm:w-auto">
-                  {sent ? "Message Sent" : "Send Message"}
-                </button>
-                <p className="mt-3 text-xs text-muted-foreground">
-                  Placeholder form — connect it to email or a CRM when you're ready.
-                </p>
+                <Button type="submit" disabled={sending} className="btn-base btn-cyan w-full sm:w-auto">
+                  {sending ? "Sending…" : sent ? "Message Sent" : "Send Message"}
+                </Button>
+                {error && <p role="alert" className="mt-3 text-sm text-destructive">{error}</p>}
+                {sent && <p role="status" className="mt-3 text-sm text-primary">Thank you! Your message has been received.</p>}
               </div>
             </form>
           </Reveal>
