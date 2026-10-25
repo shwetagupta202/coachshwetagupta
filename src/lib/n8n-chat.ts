@@ -20,21 +20,36 @@ export async function proxyN8nChat(
   message: string,
   sessionId: string,
 ): Promise<N8nChatResult> {
-  const upstream = await fetch(webhookUrl, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ message, sessionId, chatInput: message }),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch(webhookUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ message, sessionId, chatInput: message }),
+    });
+  } catch {
+    return {
+      ok: true,
+      status: 200,
+      reply:
+        "I'm offline right now — please try again in a little while, or reach Shweta on WhatsApp.",
+    };
+  }
 
   const raw = await upstream.text();
 
   if (!upstream.ok) {
+    // The webhook is unreachable or its workflow is inactive upstream.
+    // Return a graceful chat reply instead of an error response so the
+    // widget degrades cleanly for visitors.
+    console.warn(`n8n chat webhook returned ${upstream.status}: ${raw.slice(0, 300)}`);
     return {
-      ok: false,
-      status: 502,
-      reply: `Webhook error: ${raw.slice(0, 500)}`,
+      ok: true,
+      status: 200,
+      reply:
+        "I'm offline right now — please try again in a little while, or reach Shweta on WhatsApp.",
     };
   }
 
