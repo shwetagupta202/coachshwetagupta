@@ -111,6 +111,10 @@ export async function handleN8nChatRequest(
     return Response.json({ reply: result.reply, sessionId });
   } catch (error) {
     console.error("n8n chat proxy failed:", error);
-    return new Response("Chat service unreachable", { status: 502 });
+    return Response.json({
+      reply:
+        "I'm offline right now — please try again in a little while, or reach Shweta on WhatsApp.",
+      sessionId,
+    });
   }
 }
