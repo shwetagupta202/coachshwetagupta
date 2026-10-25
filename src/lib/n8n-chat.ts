@@ -2,13 +2,12 @@
  * Shared server-side proxy for n8n chat webhooks.
  * Kept in a plain module (not *.functions.ts) so it never enters the client bundle.
  */
+import { z } from "zod";
 
 export const ChatBodySchema = z.object({
   message: z.string().min(1).max(4000),
   sessionId: z.string().min(1).max(128),
 });
-
-import { z } from "zod";
 
 export interface N8nChatResult {
   ok: boolean;
