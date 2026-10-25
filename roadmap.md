@@ -5,4 +5,4 @@
 - [ ] Enable owner email notifications (blocked: no verified sending domain).
 - [x] Put YouTube above a separate, tall Instagram row.
 - [x] Verify the updates and contact submission storage.
-- [ ] Add second chatbot from the new n8n cloud webhook (own endpoint /api/ai-agent-chat, launcher "AI Agent"); verify both chats end-to-end.
+- [x] Add second chatbot from the new n8n cloud webhook (own endpoint /api/ai-agent-chat, launcher "AI Agent"); verified live — it answers. Old "Ask Shweta" webhook currently returns 502: its workflow is inactive on n8n.coachshwetagupta.com (needs activation there).
