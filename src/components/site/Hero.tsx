@@ -12,7 +12,7 @@ export function Hero() {
           <Reveal>
             <span className="pill gap-2 text-primary">
               <Sparkles className="h-3.5 w-3.5" />
-              AI Agents Coach · Maharashtra, India
+              AI Agents Coach · India
             </span>
           </Reveal>
 

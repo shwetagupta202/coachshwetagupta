@@ -82,7 +82,7 @@ export function Contact() {
             <ul className="mt-7 space-y-4 text-sm text-muted-foreground">
               <li className="flex items-center gap-3">
                 <MapPin className="h-4 w-4 shrink-0 text-primary" />
-                Maharashtra, India
+                India
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 shrink-0 text-primary" />
