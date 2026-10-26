@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, Bot, Sparkles } from "lucide-react";
+import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/components/site/content";
@@ -10,7 +10,7 @@ interface Message {
   content: string;
 }
 
-type BotKey = "shweta" | "agent";
+type BotKey = "shweta";
 
 interface BotConfig {
   key: BotKey;
@@ -32,16 +32,6 @@ const BOTS: BotConfig[] = [
     welcome:
       "Hi! I'm Shweta's AI assistant. Ask me about AI agents, workshops, coaching, or her book.",
     icon: Bot,
-  },
-  {
-    key: "agent",
-    endpoint: "/api/ai-agent-chat",
-    launcherLabel: "AI Agent",
-    panelTitle: "AI Agent",
-    panelSubtitle: "Chat with Shweta's AI agent",
-    welcome:
-      "Hi! I'm Shweta's AI agent. Ask me anything to see what an AI agent can do.",
-    icon: Sparkles,
   },
 ];
 

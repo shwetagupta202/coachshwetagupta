@@ -12,7 +12,7 @@ export const Route = createFileRoute("/api/chatbot")({
       POST: async ({ request }) =>
         handleN8nChatRequest(
           request,
-          "https://n8n.coachshwetagupta.com/webhook/1e36aa33-fe60-4eac-a4a9-e9db0e60bbc5/chat",
+          "https://n8n.coachshwetagupta.com/webhook/0e564449-ba4f-46d4-aacf-63630e038cb1/chat",
         ),
     },
   },
