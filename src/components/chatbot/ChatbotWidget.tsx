@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send, Bot, Sparkles } from "lucide-react";
+import { MessageCircle, X, Send, Bot } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { WHATSAPP_URL } from "@/components/site/content";
